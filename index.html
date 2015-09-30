@@ -4,71 +4,12 @@
 <script src="scripts/processing.js"></script>
 <script type="text/processing" data-processing-target="mycanvas">
 
-PImage chocolate1;
-PImage chocolate2;
-PImage chocolate3;
-
 
 void setup(){
 
-size(700, 350);
-background(255,255,204);
-frameRate( 30 );
+  size(650,300);
 
-
-chocolate1 = loadImage("images/kitkat.jpg");
-chocolate2 = loadImage("images/mm.jpg");
-chocolate3 = loadImage("images/twix.jpg");
-
-stroke(255,255,255)
-fill(153,153,253)
-rect(325,270,40,20)
-
-stroke(255,255,255)
-fill(153,153,253)
-rect(100,270,40,20)
-
-stroke(255,255,255)
-fill(153,153,253)
-rect(560,270,40,20)
-
-fill(0,0,0)
-text("$20",335,250)
-
-fill(0,0,0)
-text("$30",110,250)
-
-fill(0,0,0)
-text("$30",570,250)
-
-stroke(153,153,253)
-strokeWeight(5)
-line(235,0,235,350)
-
-stroke(153,153,253)
-strokeWeight(5)
-line(465,0,465,350)
-
-stroke(153,153,253)
-strokeWeight(5)
-line(0,0,0,350)
-
-stroke(153,153,253)
-strokeWeight(5)
-line(700,0,700,350)
-
-stroke(153,153,253)
-strokeWeight(5)
-line(0,0,700,0)
-
-stroke(153,153,253)
-strokeWeight(5)
-line(0,350,700,350)
-
-stroke(153,153,253)
-strokeWeight(5)
-line(0,220,700,220)
-
+  frameRate(30);
 
 
 
@@ -77,12 +18,48 @@ line(0,220,700,220)
 
 void draw()
 {
+   background(0,0,0);
 
-image(chocolate1,20,10);
-image(chocolate2,250,10);
-image(chocolate3,480,10);
+   fill(255,0,0);
+   rect(50,50,200,100);
 
+   text(mouseX,10,10);
+   text(mouseY,50,10);
+
+   if (mouseY > 50 && mouseY < 100 &&
+       mouseX > 50 && mouseX < 100) 
+	{
+		text("Your mouse cursor is inside the box",60,150);
+	}
+
+//nested IF
+	if (mouseY > 50)
+	{
+		if (mouseY < 100)
+		{
+			if (mouseX > 50)
+			{
+				if (mouseX < 100)
+				{
+				
+					text("Your mouse cursor is inside the box",40,250);
+				}
+			}
+		}
+	}
+	
+	if (mousePressed == true && mouseButton == LEFT)
+	{
+		if(mouseY > 50 && mouseY < 100 &&
+		   mouseX > 50 && mouseY < 100)
+		{
+			text("Your mouse cursor is inside the box",350,50);
+		}
+	}
 }
+
+
+
 
 </script>
 <canvas id="mycanvas"></canvas>
